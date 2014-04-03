@@ -20,7 +20,7 @@ static VGint g_height;
  */
 GLUSboolean init(GLUSvoid)
 {
-	VGfloat clearColor[4] = {0.0f, 0.0f, 1.0f, 0.0f};
+	VGfloat clearColor[4] = {0.0f, 0.0f, 1.0f, 1.0f};
 
     // The background will just cleared with blue color.
 	vgSetfv(VG_CLEAR_COLOR, 4, clearColor);

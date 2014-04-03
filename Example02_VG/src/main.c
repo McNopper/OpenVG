@@ -24,7 +24,7 @@ static VGPath g_trianglePath = VG_INVALID_HANDLE;
  */
 GLUSboolean init(GLUSvoid)
 {
-	VGfloat clearColor[4] = {0.0f, 0.0f, 0.0f, 0.0f};
+	VGfloat clearColor[4] = {0.0f, 0.0f, 0.0f, 1.0f};
 
 
 	VGubyte trianglePathSegments[4] = {

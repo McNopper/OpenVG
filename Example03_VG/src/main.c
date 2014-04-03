@@ -299,7 +299,7 @@ static VGint g_length;
 GLUSboolean init(GLUSvoid)
 {
 	// Same as the background in the tiger.
-	VGfloat clearColor[4] = {0.8f, 0.8f, 0.8f, 0.0f};
+	VGfloat clearColor[4] = {0.8f, 0.8f, 0.8f, 1.0f};
 
     // The background will just cleared with grey color.
 	vgSetfv(VG_CLEAR_COLOR, 4, clearColor);
