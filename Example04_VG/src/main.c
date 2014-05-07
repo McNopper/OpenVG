@@ -10,7 +10,7 @@
 
 #include <stdio.h>
 
-#include "VG11/glus.h"
+#include "VG/glus.h"
 
 // Amount of glyphs/letters in the bitmap font.
 #define GLYPH_CAPACITY	256
