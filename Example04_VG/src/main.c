@@ -78,7 +78,7 @@ GLUSboolean init(GLUSvoid)
 
 	// Load the bitmap font.
 
-	if (!glusLoadTgaImage("CourierNew.tga", &tgaimage))
+	if (!glusImageLoadTga("CourierNew.tga", &tgaimage))
 	{
 		printf("Error: Could not load bitmap font!\n");
 
@@ -126,7 +126,7 @@ GLUSboolean init(GLUSvoid)
 
 	// Destroy, as the bitmap image is now stored in the VG images.
 
-	glusDestroyTgaImage(&tgaimage);
+	glusImageDestroyTga(&tgaimage);
 
     return GLUS_TRUE;
 }
@@ -214,21 +214,21 @@ int main(int argc, char* argv[])
     		EGL_NONE
     };
 
-    glusInitFunc(init);
+    glusCallbackSetInitFunc(init);
 
-    glusReshapeFunc(reshape);
+    glusCallbackSetReshapeFunc(reshape);
 
-    glusUpdateFunc(update);
+    glusCallbackSetUpdateFunc(update);
 
-    glusTerminateFunc(terminate);
+    glusCallbackSetTerminateFunc(terminate);
 
-    if (!glusCreateWindow("GLUS Example Window", 640, 480, GLUS_FALSE, GLUS_FALSE, eglConfigAttributes, eglContextAttributes))
+    if (!glusWindowCreate("GLUS Example Window", 640, 480, GLUS_FALSE, GLUS_FALSE, eglConfigAttributes, eglContextAttributes))
     {
         printf("Could not create window!\n");
         return -1;
     }
 
-    glusRun();
+    glusWindowRun();
 
     return 0;
 }
