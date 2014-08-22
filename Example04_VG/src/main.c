@@ -210,7 +210,6 @@ int main(int argc, char* argv[])
 	};
 
     EGLint eglContextAttributes[] = {
-    		EGL_CONTEXT_CLIENT_VERSION, 1,
     		EGL_NONE
     };
 
