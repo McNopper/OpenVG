@@ -16,3 +16,5 @@ Example02 - Rendering of a triangle
 Example03 - Rendering the Khronos tiger
 
 Example04 - Bitmap font rendering
+
+Example05 - TTF font rendering using font2openvg output
