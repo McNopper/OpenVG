@@ -110,7 +110,7 @@ GLUSboolean init(GLUSvoid)
 	// Create all glyphs.
 	for (i = 0; i < GLYPH_CAPACITY; i++)
 	{
-		g_images[i] = vgCreateImage(VG_lRGBA_8888, fontWidth, fontHeight, VG_IMAGE_QUALITY_BETTER);
+		g_images[i] = vgCreateImage(VG_sABGR_8888, fontWidth, fontHeight, VG_IMAGE_QUALITY_BETTER);
 
 		// Calculate x coordinate in the image.
 		x = cellWidth*(i%numberCellColumns);
@@ -118,7 +118,7 @@ GLUSboolean init(GLUSvoid)
 		y = (tgaimage.height - 1) - cellHeight * (i/numberCellColumns + 1) + (cellHeight - fontHeight);
 
 		// Copy one glyph out of the TGA image into the VG image.
-		vgImageSubData(g_images[i], &tgaimage.data[y*numberColorChannels*tgaimage.width + x*numberColorChannels], tgaimage.width * numberColorChannels, VG_lRGBA_8888, 0, 0, fontWidth, fontHeight);
+		vgImageSubData(g_images[i], &tgaimage.data[y*numberColorChannels*tgaimage.width + x*numberColorChannels], tgaimage.width * numberColorChannels, VG_sABGR_8888, 0, 0, fontWidth, fontHeight);
 
 		// Assign the glyph to the VG image.
 		vgSetGlyphToImage(g_font, i, g_images[i], glyphOrigin, escapement);
