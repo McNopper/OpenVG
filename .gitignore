@@ -1,0 +1,24 @@
+# Build results
+[Bb]uild/
+lib/
+_deps/
+
+# CMake artifacts
+CMakeCache.txt
+cmake_install.cmake
+*.sln
+*.vcxproj
+*.vcxproj.filters
+**CMakeFiles
+
+# Compiled executables in the output folder
+VG_Binaries/*.exe
+# Linux executables (no extension)
+VG_Binaries/Example[0-9]*
+# DLLs copied next to the executables
+VG_Binaries/*.dll
+
+# Eclipse CDT files (legacy)
+.project
+.cproject
+.settings/

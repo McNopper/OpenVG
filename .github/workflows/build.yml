@@ -1,0 +1,73 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+# No macOS job: the EGL stack has no macOS backend.
+jobs:
+  build:
+    name: ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+
+    steps:
+      # The examples prefer sibling checkouts, which build the current HEAD of
+      # each library instead of the pinned release tags.
+      - uses: actions/checkout@v4
+        with:
+          path: OpenVG
+      - uses: actions/checkout@v4
+        with:
+          repository: McNopper/GLUS
+          path: GLUS
+      - uses: actions/checkout@v4
+        with:
+          repository: McNopper/OpenVG_Library
+          path: OpenVG_Library
+      - uses: actions/checkout@v4
+        with:
+          repository: McNopper/EGL
+          path: EGL
+
+      - name: Install Linux dependencies
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libx11-dev \
+            libxrandr-dev \
+            libgl1-mesa-dev \
+            libglx-dev \
+            libopengl-dev \
+            libvulkan-dev
+
+      # The Windows backend of EGL is WGL + Vulkan HDR: find_package(Vulkan REQUIRED).
+      - name: Install Vulkan SDK (Windows)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          choco install -y vulkan-sdk
+          $sdk = (Get-ChildItem 'C:\VulkanSDK' -Directory | Sort-Object Name -Descending | Select-Object -First 1).FullName
+          if (-not $sdk) { throw 'Vulkan SDK install directory not found under C:\VulkanSDK' }
+          "VULKAN_SDK=$sdk" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+
+      - name: Configure (Windows)
+        if: runner.os == 'Windows'
+        run: cmake -S OpenVG -B OpenVG/build -DCMAKE_BUILD_TYPE=Release
+      - name: Configure (Linux)
+        if: runner.os == 'Linux'
+        run: cmake -S OpenVG -B OpenVG/build -G Ninja -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build
+        run: cmake --build OpenVG/build --config Release
