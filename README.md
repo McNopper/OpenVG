@@ -7,6 +7,16 @@ OpenVG 1.1 examples
 
 ## Changelog
 
+### v1.0.1
+
+Dependency pin update; no example changes. All screenshots re-captured
+against the new stack (rendered output unchanged).
+
+- **McNopper/EGL v1.0.12 -> v1.0.13** (via OpenVG_Library v1.0.1): the
+  dEQP-EGL conformance program (221 pass / 0 fail), the EGL 1.5 surface
+  color space and the WGL sRGB fix that restores window surface creation
+  on NVIDIA drivers.
+
 ### v1.0.0
 
 The examples move to the McNopper/OpenGL build environment:
@@ -80,7 +90,7 @@ Executables will be in the `VG_Binaries/` directory.
 ### Dependencies
 
 - **GLUS v1.1.5** - Window/context boilerplate, math, image loading
-- **McNopper/EGL v1.0.12** and **OpenVG_Library v1.0.0** - the EGL/OpenVG
+- **McNopper/EGL v1.0.13** and **OpenVG_Library v1.0.1** - the EGL/OpenVG
   pair used when the platform does not provide its own
 
 ## Examples
