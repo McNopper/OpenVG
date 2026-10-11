@@ -7,6 +7,16 @@ OpenVG 1.1 examples
 
 ## Changelog
 
+### v1.0.3
+
+Dependency pin update; no example changes, rendered output unchanged.
+
+- **McNopper/EGL v1.0.14 -> v1.0.15** (via OpenVG_Library v1.0.3): the
+  Wayland backend presents again - the OpenVG software buffer is copied to
+  the compositor through `wl_shm`, where it was rendered but never shown
+  before - and `eglSwapBuffers` reports a failed post as
+  `EGL_BAD_NATIVE_WINDOW` per EGL 1.5 section 3.10.4 on every backend.
+
 ### v1.0.2
 
 Dependency pin update; no example changes, rendered output unchanged.
@@ -100,7 +110,7 @@ Executables will be in the `VG_Binaries/` directory.
 ### Dependencies
 
 - **GLUS v1.1.5** - Window/context boilerplate, math, image loading
-- **McNopper/EGL v1.0.14** and **OpenVG_Library v1.0.2** - the EGL/OpenVG
+- **McNopper/EGL v1.0.15** and **OpenVG_Library v1.0.3** - the EGL/OpenVG
   pair used when the platform does not provide its own
 
 ## Examples
