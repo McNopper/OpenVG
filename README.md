@@ -7,6 +7,23 @@ OpenVG 1.1 examples
 
 ## Changelog
 
+### v1.0.4
+
+Dependency pin and build system update; no example changes, rendered output
+unchanged.
+
+- **Track GLUS v1.1.7**: brings the embedded Linux windowing backends -
+  `SoC=fbdev` (with the `GPU=Vivante` guard), `SoC=Wayland` and `SoC=GBM`
+  (with the `Rotation` flag) - and the `OpenGL=ES32` flavor. The platform
+  EGL/OpenVG pair stays the provider on such targets (e.g. the Vivante GPU
+  of the STM32MP1).
+- **The GLUS platform libraries follow the windowing backend**: fbdev and
+  GBM need no X11, Wayland resolves its symbols through wayland-client and
+  wayland-egl; the X11 libraries stay the Linux default.
+- Verified: Windows, desktop Linux and ARM cross builds for all three
+  windowings - on the STM32MP157F-DK2, all five examples render under
+  Weston and fullscreen without a compositor.
+
 ### v1.0.3
 
 Dependency pin update; no example changes, rendered output unchanged.
