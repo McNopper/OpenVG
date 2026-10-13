@@ -7,6 +7,18 @@ OpenVG 1.1 examples
 
 ## Changelog
 
+### v1.0.5
+
+Dependency pin update; no example changes, rendered output unchanged.
+
+- **McNopper/EGL v1.0.15 -> v1.0.16** (via OpenVG_Library v1.0.4): the EGL
+  entry point contract for images and syncs - no foreign function pointers
+  from eglGetProcAddress, the pre-1.5 KHR aliases implemented, the
+  extension string communicating the implemented core-promoted
+  functionality, delegated EGLImages and the context-free fence wait
+  (dEQP-EGL: the image group completes for the first time, fence_sync
+  28/28).
+
 ### v1.0.4
 
 Dependency pin and build system update; no example changes, rendered output
