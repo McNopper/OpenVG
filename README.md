@@ -7,6 +7,17 @@ OpenVG 1.1 examples
 
 ## Changelog
 
+### v1.0.6
+
+Dependency pin update; no example changes, rendered output unchanged.
+
+- **OpenVG_Library v1.0.4 -> v1.0.5** (McNopper/EGL v1.0.16 -> v1.0.17): the
+  EGL compliance wave - ES pbuffer delegation with format pairing, preserved
+  swap behavior, EGL_EXT_buffer_age with the damage extensions, surfaceless
+  contexts and reusable syncs (dEQP-EGL: 930 Pass / 28 Fail to 2307 Pass /
+  2 Fail, sharing, image, preserve_swap, buffer_age and the sync groups all
+  at full Pass).
+
 ### v1.0.5
 
 Dependency pin update; no example changes, rendered output unchanged.

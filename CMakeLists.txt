@@ -70,7 +70,7 @@ else()
 		FetchContent_Declare(
 			openvg_library
 			GIT_REPOSITORY https://github.com/McNopper/OpenVG_Library.git
-			GIT_TAG        v1.0.4
+			GIT_TAG        v1.0.5
 		)
 	endif()
 	FetchContent_MakeAvailable(openvg_library)
