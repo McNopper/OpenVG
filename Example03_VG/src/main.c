@@ -93,8 +93,13 @@ PS* PS_construct(const char* commands, int commandCount, const float* points, in
 		{
 			switch(commands[c])
 			{
-			case 'M': p += 2; break;
-			case 'L': p += 2; break;
+			// A move and a line consume the same one point in this
+			// length-scanning pass; the difference matters only when the
+			// path is built below.
+			case 'M':
+			case 'L':
+				p += 2;
+				break;
 			case 'C': p += 6; break;
 			case 'E': break;
 			default:
@@ -103,6 +108,18 @@ PS* PS_construct(const char* commands, int commandCount, const float* points, in
 			c++;
 		}
 		paths++;
+	}
+
+	// Empty command stream: nothing to build. Both scan sizes are zero here
+	// and must not reach malloc(0); the second pass below only runs for a
+	// non-empty stream, which is exactly the case that falls through. A
+	// degenerate stream is reported as having no paths so the destructor
+	// never walks a NULL array.
+	if (paths == 0 || maxElements == 0)
+	{
+		ps->m_numPaths = 0;
+		ps->m_paths    = NULL;
+		return ps;
 	}
 
 	ps->m_numPaths = paths;

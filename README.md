@@ -1,5 +1,4 @@
-OpenVG
-======
+# OpenVG
 
 [![Build](https://github.com/McNopper/OpenVG/actions/workflows/build.yml/badge.svg)](https://github.com/McNopper/OpenVG/actions/workflows/build.yml)
 
@@ -11,24 +10,23 @@ OpenVG 1.1 examples
 
 Dependency pin update; no example changes, rendered output unchanged.
 
-- **OpenVG_Library v1.0.4 -> v1.0.5** (McNopper/EGL v1.0.16 -> v1.0.17): the
-  EGL compliance wave - ES pbuffer delegation with format pairing, preserved
-  swap behavior, EGL_EXT_buffer_age with the damage extensions, surfaceless
-  contexts and reusable syncs (dEQP-EGL: 930 Pass / 28 Fail to 2307 Pass /
-  2 Fail, sharing, image, preserve_swap, buffer_age and the sync groups all
-  at full Pass).
+- **OpenVG_Library v1.0.4 -> v1.0.5** (McNopper/EGL v1.0.16 -> v1.0.17): the EGL
+  compliance wave - ES pbuffer delegation with format pairing, preserved swap
+  behavior, EGL_EXT_buffer_age with the damage extensions, surfaceless contexts
+  and reusable syncs (dEQP-EGL: 930 Pass / 28 Fail to 2307 Pass / 2 Fail,
+  sharing, image, preserve_swap, buffer_age and the sync groups all at full
+  Pass).
 
 ### v1.0.5
 
 Dependency pin update; no example changes, rendered output unchanged.
 
-- **McNopper/EGL v1.0.15 -> v1.0.16** (via OpenVG_Library v1.0.4): the EGL
-  entry point contract for images and syncs - no foreign function pointers
-  from eglGetProcAddress, the pre-1.5 KHR aliases implemented, the
-  extension string communicating the implemented core-promoted
-  functionality, delegated EGLImages and the context-free fence wait
-  (dEQP-EGL: the image group completes for the first time, fence_sync
-  28/28).
+- **McNopper/EGL v1.0.15 -> v1.0.16** (via OpenVG_Library v1.0.4): the EGL entry
+  point contract for images and syncs - no foreign function pointers from
+  eglGetProcAddress, the pre-1.5 KHR aliases implemented, the extension string
+  communicating the implemented core-promoted functionality, delegated EGLImages
+  and the context-free fence wait (dEQP-EGL: the image group completes for the
+  first time, fence_sync 28/28).
 
 ### v1.0.4
 
@@ -36,54 +34,53 @@ Dependency pin and build system update; no example changes, rendered output
 unchanged.
 
 - **Track GLUS v1.1.7**: brings the embedded Linux windowing backends -
-  `SoC=fbdev` (with the `GPU=Vivante` guard), `SoC=Wayland` and `SoC=GBM`
-  (with the `Rotation` flag) - and the `OpenGL=ES32` flavor. The platform
-  EGL/OpenVG pair stays the provider on such targets (e.g. the Vivante GPU
-  of the STM32MP1).
-- **The GLUS platform libraries follow the windowing backend**: fbdev and
-  GBM need no X11, Wayland resolves its symbols through wayland-client and
+  `SoC=fbdev` (with the `GPU=Vivante` guard), `SoC=Wayland` and `SoC=GBM` (with
+  the `Rotation` flag) - and the `OpenGL=ES32` flavor. The platform EGL/OpenVG
+  pair stays the provider on such targets (e.g. the Vivante GPU of the
+  STM32MP1).
+- **The GLUS platform libraries follow the windowing backend**: fbdev and GBM
+  need no X11, Wayland resolves its symbols through wayland-client and
   wayland-egl; the X11 libraries stay the Linux default.
-- Verified: Windows, desktop Linux and ARM cross builds for all three
-  windowings - on the STM32MP157F-DK2, all five examples render under
-  Weston and fullscreen without a compositor.
+- Verified: Windows, desktop Linux and ARM cross builds for all three windowings
+  - on the STM32MP157F-DK2, all five examples render under Weston and fullscreen
+  without a compositor.
 
 ### v1.0.3
 
 Dependency pin update; no example changes, rendered output unchanged.
 
-- **McNopper/EGL v1.0.14 -> v1.0.15** (via OpenVG_Library v1.0.3): the
-  Wayland backend presents again - the OpenVG software buffer is copied to
-  the compositor through `wl_shm`, where it was rendered but never shown
-  before - and `eglSwapBuffers` reports a failed post as
-  `EGL_BAD_NATIVE_WINDOW` per EGL 1.5 section 3.10.4 on every backend.
+- **McNopper/EGL v1.0.14 -> v1.0.15** (via OpenVG_Library v1.0.3): the Wayland
+  backend presents again - the OpenVG software buffer is copied to the
+  compositor through `wl_shm`, where it was rendered but never shown before -
+  and `eglSwapBuffers` reports a failed post as `EGL_BAD_NATIVE_WINDOW` per EGL
+  1.5 section 3.10.4 on every backend.
 
 ### v1.0.2
 
 Dependency pin update; no example changes, rendered output unchanged.
 
 - **McNopper/EGL v1.0.13 -> v1.0.14** (via OpenVG_Library v1.0.2): window
-  surfaces are back-buffered again on Windows. v1.0.13 could back a window
-  with a single-buffered pixel format, so GL windows stayed blank while
-  running; OpenVG presents through EGL's software-buffer path, which that
-  defect did not touch, but the stack stays on one fixed EGL release.
+  surfaces are back-buffered again on Windows. v1.0.13 could back a window with
+  a single-buffered pixel format, so GL windows stayed blank while running;
+  OpenVG presents through EGL's software-buffer path, which that defect did not
+  touch, but the stack stays on one fixed EGL release.
 
 ### v1.0.1
 
 Dependency pin update; no example changes. All screenshots re-captured
 against the new stack (rendered output unchanged).
 
-- **McNopper/EGL v1.0.12 -> v1.0.13** (via OpenVG_Library v1.0.1): the
-  dEQP-EGL conformance program (221 pass / 0 fail), the EGL 1.5 surface
-  color space and the WGL sRGB fix that restores window surface creation
-  on NVIDIA drivers.
+- **McNopper/EGL v1.0.12 -> v1.0.13** (via OpenVG_Library v1.0.1): the dEQP-EGL
+  conformance program (221 pass / 0 fail), the EGL 1.5 surface color space and
+  the WGL sRGB fix that restores window surface creation on NVIDIA drivers.
 
 ### v1.0.0
 
 The examples move to the McNopper/OpenGL build environment:
 
-- **CMake build** modeled on McNopper/OpenGL: one `CMakeLists.txt` per
-  example, `cppcheck`/`warnings` modules, executables in `VG_Binaries/`.
-  Requires **GLUS v1.1.5** (the `OpenGL=VG` flavor).
+- **CMake build** modeled on McNopper/OpenGL: one `CMakeLists.txt` per example,
+  `cppcheck`/`warnings` modules, executables in `VG_Binaries/`. Requires **GLUS
+  v1.1.5** (the `OpenGL=VG` flavor).
 - **EGL/OpenVG pair per platform**: the platform's own pair when it provides
   both (for example the Vivante GPU of the STM32MP1), otherwise
   [McNopper/EGL](https://github.com/McNopper/EGL) with
@@ -107,6 +104,7 @@ sources - are documented in [`THIRD-PARTY.md`](THIRD-PARTY.md).
 ### Prerequisites
 
 **Required:**
+
 - **CMake 3.14 or higher** - [Download](https://cmake.org/download/)
 - **C/C++ Compiler**:
   - Windows: Visual Studio 2013+ (MSVC)
@@ -118,9 +116,11 @@ sources - are documented in [`THIRD-PARTY.md`](THIRD-PARTY.md).
 ### Verify Installation
 
 Check if CMake is installed:
+
 ```bash
 cmake --version
 ```
+
 Should show version 3.14 or higher.
 
 ### Building
@@ -132,6 +132,7 @@ platform does not provide its own EGL/OpenVG pair, McNopper/EGL and
 OpenVG_Library are fetched the same way.
 
 **Windows (Visual Studio):**
+
 ```bash
 mkdir build && cd build
 cmake ..
@@ -139,6 +140,7 @@ cmake --build . --config Release
 ```
 
 **Linux:**
+
 ```bash
 mkdir build && cd build
 cmake ..
@@ -150,18 +152,22 @@ Executables will be in the `VG_Binaries/` directory.
 ### Dependencies
 
 - **GLUS v1.1.5** - Window/context boilerplate, math, image loading
-- **McNopper/EGL v1.0.15** and **OpenVG_Library v1.0.3** - the EGL/OpenVG
-  pair used when the platform does not provide its own
+- **McNopper/EGL v1.0.15** and **OpenVG_Library v1.0.3** - the EGL/OpenVG pair
+  used when the platform does not provide its own
 
 ## Examples
 
 All examples demonstrate OpenVG 1.1 rendering.
 
-- [Example01_VG - Basic window and OpenVG initialization](#example01_vg---basic-window-and-openvg-initialization)
-- [Example02_VG - Rendering of a triangle](#example02_vg---rendering-of-a-triangle)
-- [Example03_VG - Rendering the Khronos tiger](#example03_vg---rendering-the-khronos-tiger)
+- [Example01_VG - Basic window and OpenVG
+  initialization](#example01_vg---basic-window-and-openvg-initialization)
+- [Example02_VG - Rendering of a
+  triangle](#example02_vg---rendering-of-a-triangle)
+- [Example03_VG - Rendering the Khronos
+  tiger](#example03_vg---rendering-the-khronos-tiger)
 - [Example04_VG - Bitmap font rendering](#example04_vg---bitmap-font-rendering)
-- [Example05_VG - TTF font rendering using font2openvg output](#example05_vg---ttf-font-rendering-using-font2openvg-output)
+- [Example05_VG - TTF font rendering using font2openvg
+  output](#example05_vg---ttf-font-rendering-using-font2openvg-output)
 
 ### Example01_VG - Basic window and OpenVG initialization
 
@@ -182,3 +188,14 @@ All examples demonstrate OpenVG 1.1 rendering.
 ### Example05_VG - TTF font rendering using font2openvg output
 
 ![Example05_VG](screenshots/Example05_VG.png)
+
+## Code quality
+
+| Layer | Command | Gate |
+| --- | --- | --- |
+| cppcheck | `cmake --build build/ninja --target cppcheck` | exits non-zero on findings |
+| clang-tidy | `python tools/check_tidy.py --build-dir build/ninja` | `WarningsAsErrors` in `.clang-tidy` |
+
+Both layers are optional at build time; a clean checkout without them builds
+exactly as before. The clang-tidy profile keeps correctness classes and
+deliberately skips style - formatting here is authored, not derived.
