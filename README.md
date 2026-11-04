@@ -6,6 +6,16 @@ OpenVG 1.1 examples
 
 ## Changelog
 
+### v1.0.7
+
+Dependency pin update; no example changes, rendered output unchanged.
+
+- **GLUS v1.1.7 -> v1.1.10**: cgltf v1.15 with improved validation and new
+  extension parsing, morph NORMAL/TANGENT deltas detected across all morph
+  targets, a GBM/DRM fix that consumes page flip events (fixes a frozen
+  picture after a few frames), a wavefront loader flush guard, and the
+  analysis CI lane.
+
 ### v1.0.6
 
 Dependency pin update; no example changes, rendered output unchanged.
