@@ -70,7 +70,7 @@ else()
 		FetchContent_Declare(
 			openvg_library
 			GIT_REPOSITORY https://github.com/McNopper/OpenVG_Library.git
-			GIT_TAG        v1.0.5
+			GIT_TAG        v1.0.6
 		)
 	endif()
 	FetchContent_MakeAvailable(openvg_library)
@@ -93,7 +93,7 @@ else()
     FetchContent_Declare(
         glus
         GIT_REPOSITORY https://github.com/McNopper/GLUS.git
-        GIT_TAG        v1.1.10
+        GIT_TAG        v1.1.11
     )
 endif()
 FetchContent_MakeAvailable(glus)

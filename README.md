@@ -6,6 +6,20 @@ OpenVG 1.1 examples
 
 ## Changelog
 
+### v1.0.8
+
+Build system and dependency updates; no example changes, rendered output
+unchanged.
+
+- **Sanitizer configuration is fixed**: the shared warnings helper now uses
+  `target_link_options`, avoiding mixed plain/keyword link signatures.
+- **Track OpenVG_Library v1.0.6 and EGL v1.0.20**: provider teardown releases
+  context-owned drawables safely, and window resizes reallocate the OpenVG
+  presentation buffer instead of reading beyond it. The WSL
+  dEQP-EGL.functional suite reports 2308 Pass / 0 Fail.
+- **Track GLUS v1.1.11**: current Xlib builds are warning-free, and desktop
+  startup works on Wayland sessions.
+
 ### v1.0.7
 
 Dependency pin update; no example changes, rendered output unchanged.
